@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  aggregationapi:
+    image: ${DOCKER_REGISTRY-}aggregationapi
+    build:
+      context: .
+      dockerfile: AggregationAPI/Dockerfile
