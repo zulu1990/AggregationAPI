@@ -21,8 +21,17 @@ namespace AggregationAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var server = Configuration["DbServer"] ?? "localhost";
+            //var port = Configuration["DbPort"] ?? "1450";
+            //var user = Configuration["DbUser"] ?? "SA";
+            //var passwrod = Configuration["Password"] ?? "P@$$word";
+            //var database = Configuration["Database"] ?? "AggregationAPI";
+            //var connectionString = $"Server={server}, {port};Initial Catalog={database};User ID={user};Password={passwrod}";
+
+
+
             services.AddDbContext<DataContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("DbConnection")));
+                Configuration.GetConnectionString("DockerDb")));
 
 
             services.AddScoped<IRecordRepository, RecordRepository>();
